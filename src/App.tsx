@@ -5,15 +5,16 @@ import { photoList } from './data/photoList'
 function App() {
 
   const [showModal, setShowModal] = useState(false);
-  const [imageOfModal, setImageOfModal] = useState("");
-
+  const [imageOfModal, setImageOfModal] = useState(""); // aqui so serve para guardar a imagem que foi selecionada.
 
   const openModal = (id: Number) => {
-    const photo = photoList.find(item => item.id === id);
+
+    const photo = photoList.find((item) => item.id === id);
     if(photo){
       setImageOfModal(photo.url);
       setShowModal(true);
     }
+
   }
 
 
@@ -32,9 +33,7 @@ function App() {
           ))}
         </section>
 
-        {showModal && 
-        <Modal  image = {imageOfModal} closeModal={closeModal}/>
-        }
+       
     </>
   )
 }
