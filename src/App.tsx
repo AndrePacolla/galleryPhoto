@@ -1,6 +1,7 @@
-import { useState } from 'react'
-import { PhotoItem } from './components/PhotoItem'
-import { photoList } from './data/photoList'
+import { useState } from 'react';
+import { PhotoItem } from './components/PhotoItem';
+import { Modal } from "./components/Modal";
+import { photoList } from './data/photoList';
 
 function App() {
 
@@ -9,13 +10,19 @@ function App() {
 
   const openModal = (id: Number) => {
 
-    const photo = photoList.find((item) => item.id === id);
+    const photo = photoList.find((item) => item.id === id )
+
     if(photo){
+
       setImageOfModal(photo.url);
       setShowModal(true);
-    }
+      }
+   }
 
-  }
+   const closeModal = () => {
+    setShowModal(false);
+   };
+
 
 
   return (
@@ -23,15 +30,30 @@ function App() {
       
         <h1 className='text-white text-center my-14 text-3xl font-bold'>Fotos Intergalacticas</h1>
         <section className='container max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 '>
+
           {photoList.map(item => (
             <PhotoItem
-
-              key={item.id}
-              photo={item}
-              onClick={() => openModal(item.id)}
+            
+            key={item.id}
+            photo={item}
+            onClick={() => openModal(item.id)}
             />
           ))}
         </section>
+
+          {showModal &&
+          
+            <Modal 
+              image={imageOfModal}
+              closeModal={closeModal}
+
+
+            
+            
+            />
+          
+          }
+
 
        
     </>
