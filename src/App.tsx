@@ -5,20 +5,24 @@ import { photoList } from './data/photoList';
 
 function App() {
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false); // variavel responsavel para exibir ou nao o modal
   const [imageOfModal, setImageOfModal] = useState(""); // aqui so serve para guardar a imagem que foi selecionada.
 
-  const openModal = (id: Number) => {
 
-    const photo = photoList.find((item) => item.id === id )
+  // Abril modal
+  const openModal = (id: number) => {
+
+    const photo = photoList.find((item) => item.id === id);// busca ids da lista dps comparo se é igual ao id do parametro
 
     if(photo){
-
       setImageOfModal(photo.url);
       setShowModal(true);
-      }
+    }
+
    }
 
+
+   // Fechar modal
    const closeModal = () => {
     setShowModal(false);
    };
