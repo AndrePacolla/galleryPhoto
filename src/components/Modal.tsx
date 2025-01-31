@@ -17,7 +17,7 @@ export const Modal = ({ image, closeModal }: Props) => {
 
           </div>
           <div onClick={closeModal} className="fixed top-5 left-5 w-10 h-10 cursor-pointer text-white text-5xl">
-                <img src={Logo} className="w-10 h-10 fixed left-5 right-5 cursor-pointer "/>
+                <img onClick={closeModal} src={Logo} className="w-16 h-16 fixed right-16 top-8 cursor-pointer hover:scale-125"/>
          </div>
         
         
